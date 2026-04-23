@@ -63,6 +63,33 @@ export default function About() {
         </div>
       </div>
 
+      {/* Ecosystem Mission Statement */}
+      <section className="relative px-4">
+        <div className="max-w-4xl mx-auto glass rounded-[4rem] p-12 md:p-24 space-y-10 border-brand-pink/20">
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-brand flex items-center justify-center text-white">
+              <Rocket size={24} />
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold text-white uppercase tracking-tighter">Our Ecosystem <span className="text-gradient">Mission</span></h2>
+          </div>
+          <p className="text-gray-300 text-xl md:text-2xl leading-relaxed italic">
+            "Ma Creatives Studio exists to defy the boundaries between physical assets and digital innovation. 
+            We are committed to building an infrastructure where African creativity is not just a service, 
+            but a globally scalable engine of wealth and community impact."
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 pt-10 border-t border-white/10">
+            <div className="space-y-4">
+              <h4 className="text-brand-pink font-bold uppercase tracking-widest text-sm">Strategic Goal 01</h4>
+              <p className="text-gray-400">To transition 1,000+ local businesses into the digital-first economy through elite branding and tech integration.</p>
+            </div>
+            <div className="space-y-4">
+              <h4 className="text-brand-pink font-bold uppercase tracking-widest text-sm">Strategic Goal 02</h4>
+              <p className="text-gray-400">To cultivate a network of 50,000+ creators within Ma Networld, fostering cross-border collaboration and earning.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Core Concept */}
       <section className="glass rounded-[4rem] p-12 md:p-24 bg-gradient-to-br from-black to-white/5 overflow-hidden">
         <div className="text-center space-y-12 mb-20">

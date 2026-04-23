@@ -203,6 +203,7 @@ export default function Home() {
                 src={`https://picsum.photos/seed/${p.img}/1200/800`} 
                 alt={p.name}
                 referrerPolicy="no-referrer"
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:scale-110 group-hover:opacity-60 transition-all duration-1000" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
@@ -295,7 +296,7 @@ export default function Home() {
            {[1,2,3,4,5].map(i => (
              <div key={i} className="flex-shrink-0 w-80 glass rounded-[2.5rem] p-6 group">
                 <div className="h-48 rounded-2xl bg-white/5 overflow-hidden mb-6">
-                   <img src={`https://picsum.photos/seed/shop${i}/400/300`} alt={`Asset ${i}`} referrerPolicy="no-referrer" className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
+                   <img src={`https://picsum.photos/seed/shop${i}/400/300`} alt={`Asset ${i}`} referrerPolicy="no-referrer" loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
                 </div>
                 <h3 className="text-white font-bold uppercase mb-2">Creative Asset #{i}</h3>
                 <div className="flex justify-between items-center">
@@ -346,7 +347,7 @@ export default function Home() {
 
       {/* 9) INNOVATION LAB SECTION */}
       <section className="relative h-[600px] rounded-[4rem] overflow-hidden group">
-         <img src="https://picsum.photos/seed/innovation-lab/1920/1080?blur=4" alt="Innovation Lab" referrerPolicy="no-referrer" className="absolute inset-0 w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-1000" />
+         <img src="https://picsum.photos/seed/innovation-lab/1920/1080?blur=4" alt="Innovation Lab" referrerPolicy="no-referrer" loading="lazy" className="absolute inset-0 w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-1000" />
          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent p-12 md:p-24 flex items-center">
             <div className="max-w-xl space-y-8">
               <FlaskConical size={64} className="text-brand-orange animate-pulse" />

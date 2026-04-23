@@ -46,7 +46,10 @@ export function Navbar() {
 
   return (
     <>
-      <nav className={cn(
+      <nav 
+        role="navigation"
+        aria-label="Main Navigation"
+        className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         isScrolled 
           ? "h-16 bg-black/80 backdrop-blur-xl border-b border-white/5" 
@@ -54,7 +57,11 @@ export function Navbar() {
       )}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
           <div className="flex items-center justify-between w-full">
-            <Link to="/" className="flex items-center space-x-3 group relative">
+            <Link 
+              to="/" 
+              aria-label="Ma Creatives Studio Home"
+              className="flex items-center space-x-3 group relative"
+            >
               <div className={cn(
                 "rounded-[0.9rem] bg-gradient-brand flex items-center justify-center group-hover:rotate-[15deg] transition-all duration-700 shadow-xl relative z-10",
                 isScrolled ? "w-9 h-9" : "w-11 h-11"
@@ -74,12 +81,13 @@ export function Navbar() {
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden lg:flex items-center space-x-1">
+            <div className="hidden lg:flex items-center space-x-1" role="menubar">
               <button 
                 onClick={() => setIsSearchOpen(true)}
+                aria-label="Open global search (Press Cmd+K to open)"
                 className="group flex items-center space-x-2 px-4 py-2 mr-4 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:bg-white/10 hover:text-white transition-all overflow-hidden"
               >
-                <Search size={16} className="group-hover:scale-110 transition-transform" />
+                <Search size={16} className="group-hover:scale-110 transition-transform" aria-hidden="true" />
                 <span className="text-xs font-bold uppercase tracking-widest opacity-60">Search Project</span>
                 <span className="ml-4 flex items-center space-x-1 text-[10px] bg-white/10 px-1.5 py-0.5 rounded border border-white/10">
                    <Command size={10} /> <span>K</span>
@@ -90,6 +98,8 @@ export function Navbar() {
                 <Link
                   key={item.path}
                   to={item.path}
+                  role="menuitem"
+                  aria-current={location.pathname === item.path ? "page" : undefined}
                   className={cn(
                     "px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-all duration-300 hover:text-white flex items-center space-x-2 group/nav",
                     location.pathname === item.path 
@@ -97,12 +107,13 @@ export function Navbar() {
                       : "text-gray-500"
                   )}
                 >
-                  <item.icon size={12} className={cn("transition-transform group-hover/nav:scale-110", location.pathname === item.path ? "text-brand-pink" : "text-gray-600")} />
+                  <item.icon size={12} className={cn("transition-transform group-hover/nav:scale-110", location.pathname === item.path ? "text-brand-pink" : "text-gray-600")} aria-hidden="true" />
                   <span>{item.name}</span>
                 </Link>
               ))}
               <Link
                 to="/contact"
+                role="menuitem"
                 className="ml-4 px-6 py-2 rounded-full bg-gradient-brand text-white text-xs font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-[0_0_30px_-5px_rgba(147,51,234,0.4)]"
               >
                 Join Now
@@ -113,15 +124,18 @@ export function Navbar() {
             <div className="lg:hidden flex items-center space-x-4">
               <button 
                 onClick={() => setIsSearchOpen(true)}
+                aria-label="Open search"
                 className="p-2 rounded-lg bg-white/5 border border-white/10 text-white"
               >
-                <Search size={20} />
+                <Search size={20} aria-hidden="true" />
               </button>
               <button
                 onClick={() => setIsOpen(!isOpen)}
+                aria-expanded={isOpen}
+                aria-label={isOpen ? "Close mobile menu" : "Open mobile menu"}
                 className="p-2 rounded-lg bg-white/5 border border-white/10 text-white"
               >
-                {isOpen ? <X /> : <Menu />}
+                {isOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
               </button>
             </div>
           </div>
@@ -135,6 +149,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
               className="lg:hidden glass border-t border-white/5 absolute top-20 left-0 right-0"
+              role="menu"
             >
               <div className="px-4 pt-2 pb-6 space-y-1">
                 {navItems.map((item) => (
